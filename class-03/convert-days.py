@@ -1,13 +1,23 @@
-days = int(input("Enter the number of days to convert: "))
-# convert days to seconds/minutes/hours
-# 1 day = 24 hours
-# 1 hour = 60 minutes
-# 1 minute = 60 seconds
-cal_to_seconds = 24 * 60 * 60
+#Getting the prompt needed
+def get_positive_integer_input(prompt):
+    while True:
+        try:
+            days = int(input(prompt))
+            if days >= 0:
+                return days
+            else:
+                print("Invalid answer! Enter a positif number this time.")
+        except ValueError:
+                print("Invalid answer! Enter a number this time.")
 
-def unit_calculatiuon(days):
-    return days * cal_to_seconds
-y = days
-x = unit_calculatiuon(y)
-a = unit_calculatiuon(y)
-print(f"{y} days = {a} minutes and {x} seconds")
+#conversion constant
+def unit_calculation(days):
+    hours = days * 24
+    minutes = hours * 60
+    seconds = minutes * 60
+    return hours, minutes, seconds
+
+# Main Program
+days = get_positive_integer_input("Enter a number of days to convert: ")
+hours, minutes, seconds = unit_calculation(days)
+print(f"{days} days = {hours} hours, {minutes} minutes and {seconds} seconds.")
