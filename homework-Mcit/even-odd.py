@@ -4,7 +4,6 @@ def get_number_input(prompt) -> float | int:
         try:
             # Accept numd convert it to a float
             num: float = float(input(prompt))
-            # If the number is a integer, convert to int
             if num.is_integer():
                 return int(num)
             else:
