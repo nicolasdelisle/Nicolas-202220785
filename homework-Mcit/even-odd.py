@@ -2,20 +2,20 @@
 def get_number_input(prompt) -> float | int:
     while True:
         try:
-            # Accept numd convert it to a float
+            # Accept number only
             num: float = float(input(prompt))
             if num.is_integer():
                 return int(num)
             else:
                 return num
         except ValueError:
-            print("This is not a valid! Enter a number.")
+            print("This is not valid! Enter a number.")
 
 # function to check if the last digit before the decimal is even or odd
 def check_even_odd(num: float | int):
-    # gt the integer part of the number
+    # get the integer part of the number and check the last digit before the decimal point
     integer_part = int(num)
-    # check the last digit before the decimal point
+    
     if integer_part % 2 == 0:
         return "even"
     else:
