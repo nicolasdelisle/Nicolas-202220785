@@ -8,7 +8,7 @@ def get_positive_integer_input(prompt):
             else:
                 print("Invalid answer! Enter a positif number this time.")
         except ValueError:
-                print("Invalid answer! Enter a number this time.")
+                print("Invalid answer! Enter a integer number this time.")
 
 #conversion constant
 def unit_calculation(days):
