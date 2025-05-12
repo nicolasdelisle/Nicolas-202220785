@@ -24,6 +24,6 @@ numbers.pop()
 average_remain = sum(numbers) / len(numbers)
    
     #main program
-print("You entered:", numbers)
-print('Average of numbers excluding the highest number: ', average_remain)
-print('Average of all numbers: ', average_all)
+print("You entered minus the highest number:", numbers)
+print('Average of numbers excluding the highest number: ', average_remain)       
+print('Average of all number: ', average_all)
