@@ -1,13 +1,13 @@
 #prompt the user to get 5 number one at time 
 numbers = []                                                             #initializes a empty list
 for i in range(5):                                                       # start a loop for 5 number
-    #making sure to receive number no other character
+    #making sure to receive only number
     while True:
         try:
             number = float(input("Enter a number: "))
-            if number.is_integer():                                      #making integer look cleaner
+            if number.is_integer():                                      #making integer look cleaner 
              number = int(number)
-            numbers.append(number)                                       #add a number to the numbers 
+            numbers.append(number)                                       #add a number to the numbers(list)
             break                                                        
         except ValueError:                                               #if not a valid anwser prompt the user again
             print('Invalid input! Try enter a number.')                  
