@@ -15,7 +15,7 @@ def check_key_in_dict(dictionary, key):
     # Check for key membership
     return key in key_set
 
-# Example usage
+# main
 sample_dict = {'a': 1, 'b': 2, 'c': 3}
 key_to_check = input("Enter the key you want to check: ")
 

@@ -19,7 +19,7 @@ def character_count(text):
 
     return char_dict
 
-# Example usage
+# main
 if __name__ == "__main__":
     user_input = input("Enter a string: ")
     result = character_count(user_input)
