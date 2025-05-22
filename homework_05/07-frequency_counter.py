@@ -15,12 +15,12 @@ def character_count(text):
             if char in char_dict:
                 char_dict[char] += 1  # Increase the count
             else:
-                char_dict[char] = 1  # Add new character with count 1
+                char_dict[char] = 1  # Add new character with basic count 1
 
     return char_dict
 
 # main
-if __name__ == "__main__":
-    user_input = input("Enter a string: ")
-    result = character_count(user_input)
-    print("Character count:", result)
+
+user_input = input("Enter a string: ")
+result = character_count(user_input)
+print("Character count:", result)
