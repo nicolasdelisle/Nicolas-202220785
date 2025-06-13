@@ -2,12 +2,10 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# 1. Default VPC
 data "aws_vpc" "default" {
   default = true
 }
 
-# 2. Default Subnet(s) in that VPC
 data "aws_subnets" "default" {
   filter {
     name   = "vpc-id"
@@ -20,7 +18,6 @@ data "aws_subnets" "default" {
   }
 }
 
-# 3. Latest Ubuntu 22.04 AMI
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -34,10 +31,9 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  owners = ["099720109477"] # Canonical
+  owners = ["099720109477"] 
 }
 
-# 4. Security Group for ports 22, 80, 443
 resource "aws_security_group" "web_sg" {
   name        = "web-sg"
   description = "Allow SSH, HTTP, HTTPS"
@@ -80,7 +76,6 @@ resource "aws_security_group" "web_sg" {
   }
 }
 
-# 5. EC2 instance
 resource "aws_instance" "ubuntu_ec2" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = "t2.micro"
