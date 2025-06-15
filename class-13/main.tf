@@ -77,14 +77,23 @@ resource "aws_security_group" "mcit_sg" {
 }
 
 resource "aws_instance" "mcit_instance" {
-  ami           = "ami-0c2b8ca1dad447f8a" # Amazon Linux 2 AMI in us-east-1
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.mcit_subnet.id
+  ami                    = "ami-0c2b8ca1dad447f8a" # Amazon Linux 2 in us-east-1
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.mcit_subnet.id
   vpc_security_group_ids = [aws_security_group.mcit_sg.id]
   associate_public_ip_address = true
-  key_name      = var.key_name
+  key_name               = var.key_name
+
+  user_data = <<-EOF
+              #!/bin/bash
+              yum update -y
+              yum install -y httpd
+              systemctl enable httpd
+              systemctl start httpd
+              echo "Hello Nicolas, Delisle" > /var/www/html/index.html
+              EOF
 
   tags = {
-    Name = "mcit-ec2"
+    Name = "mcit-ec2-test"
   }
 }
